@@ -6,25 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobPositionService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.SuccesDataResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlamaio.hrms.entities.concretes.JobPosition;
 
 
 @Service
-public class JobManager implements JobPositionService{
+public class JobPositionManager implements JobPositionService{
 	
 	private JobPositionDao jobDao ;
 	
 	@Autowired
 
-	public JobManager(JobPositionDao jobDao) {
+	public JobPositionManager(JobPositionDao jobDao) {
 		super();
 		this.jobDao = jobDao;
 	}
 
 	@Override
-	public List<JobPosition> getAll() {
-		return this.jobDao.findAll();
+	public DataResult<List<JobPosition>> getAll() {
+		
+		return new SuccesDataResult<List<JobPosition>>
+				(this.jobDao.findAll());
 		
 	}
 
