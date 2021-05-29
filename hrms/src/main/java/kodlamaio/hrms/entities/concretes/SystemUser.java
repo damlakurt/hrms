@@ -25,8 +25,8 @@ public class SystemUser extends User  {
 	
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-@Column(name = "user_id")	
-private	int id;
+//@Column(name = "user_id")	
+//private	int id;
 	
 	
 @Column(name = "system_user_name")

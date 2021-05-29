@@ -1,10 +1,13 @@
 package kodlamaio.hrms.core.utilities.validators;
 
-import java.time.LocalDate;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface UserCheckService {
 	
-	public boolean userCheck(String firstname,String lastname, String nationalId, LocalDate birthOfDate);
+	public boolean userCheck(String nationalityId,String firstName,String lastName,int yearOfBirth);
+	
 	
 
 }
