@@ -48,4 +48,9 @@ public class ResumeManager implements ResumeService{
 		return new SuccesResult();
 	}
 
+	@Override
+	public DataResult<List<Resume>> getAllByJobseekersId(int id) {
+		return new SuccesDataResult<List<Resume>>(this.resumedao.findByJobseekers_id(id),"Id Numarasına Göre Cv Getirildi");
+	}
+
 }

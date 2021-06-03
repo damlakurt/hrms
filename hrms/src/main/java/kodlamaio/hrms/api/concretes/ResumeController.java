@@ -3,10 +3,12 @@ package kodlamaio.hrms.api.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.ResumeService;
@@ -34,5 +36,8 @@ public DataResult<List<Resume>> getall(){
 public Result add(@RequestBody Resume resume) {
 	return this.resumeService.add(resume);
 }
-
+@GetMapping("/getallbyjobseekerid")
+public ResponseEntity<?> getAllByJobseekersId(@RequestParam(name = "id") int id) {
+	return ResponseEntity.ok(this.resumeService.getAllByJobseekersId(id));
+}
 }
