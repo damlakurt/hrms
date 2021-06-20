@@ -14,11 +14,18 @@ public interface JobAdvertiseService {
 	Result update(JobAdvertise jobAdvertise);
 	
 	DataResult<List<JobAdvertise>> getAll();
-	DataResult<List<JobAdvertise>>findAllByEnableTrue(); 
+	
+	DataResult<List<JobAdvertise>> getByIsConfirm(boolean isConfirm);
+	DataResult<List<JobAdvertise>> getByIsConfirmAndEnable(boolean isConfirm, boolean enable);
+	
+	DataResult<List<JobAdvertise>>getAllByEnableTrue(); 
 
-	DataResult<List<JobAdvertise>>findAllByEnableTrueOrderByCreatedAtDesc(); 
+	DataResult<List<JobAdvertise>>getAllByEnableTrueOrderByCreatedAtDesc(); 
 	
 	
-	DataResult<List<JobAdvertise>>findAllEnableTrueByEmployer(int id);
+	DataResult<List<JobAdvertise>>getAllEnableTrueByEmployer(int id);
+	
+	
+	
 
 }

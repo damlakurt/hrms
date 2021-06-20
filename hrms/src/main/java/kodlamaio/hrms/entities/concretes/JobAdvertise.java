@@ -61,6 +61,15 @@ public class JobAdvertise {
 	
     @Column(name = "enable")
     private boolean enable;
+    
+    @Column(name = "is_confirm")
+	private boolean isConfirm;
 	
-	
+    @ManyToOne()
+    @JoinColumn(name = "workplace_id")
+    private WorkPlace workPlace;
+
+    @ManyToOne()
+    @JoinColumn(name = "work_time_id")
+    private WorkTime workTime;
 }

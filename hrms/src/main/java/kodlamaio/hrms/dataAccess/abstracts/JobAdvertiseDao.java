@@ -11,13 +11,18 @@ import kodlamaio.hrms.entities.concretes.JobAdvertise;
 
 public interface JobAdvertiseDao  extends JpaRepository<JobAdvertise, Integer>{
 	
+	
 
-	List<JobAdvertise>findAllByEnableTrue(); //aktif iş ilanları
+	List<JobAdvertise>getAllByEnableTrue(); //aktif iş ilanları
 
-	List<JobAdvertise>findAllByEnableTrueOrderByCreatedAtDesc(); //tarihe göre aktif iş ilanları
+	List<JobAdvertise>getAllByEnableTrueOrderByCreatedAtDesc(); //tarihe göre aktif iş ilanları
 	
 	@Query("From JobAdvertise where employer_id=:id")
-	List<JobAdvertise>findAllEnableTrueByEmployer(int id); //bir firmanın aktif iş ilanları
+	List<JobAdvertise>getAllEnableTrueByEmployer(int id); //bir firmanın aktif iş ilanları
+	
+	
+	List<JobAdvertise> getByIsConfirm(boolean isConfirm);
+	List<JobAdvertise> getByIsConfirmAndEnable(boolean isConfirm, boolean enable);
 	
 	
 	
